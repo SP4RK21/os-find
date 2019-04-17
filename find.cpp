@@ -123,11 +123,8 @@ std::vector<char*> getConvertedArgs(std::vector<File>& args) {
 }
 
 void fileBfs(std::string& curPath, const RequestInfo& requestInfo, std::vector<File>& result) {
-    DIR* curDir = opendir(curPath.c_str());
+    DIR* curDir;
     std::queue<std::string> q;
-    if (curDir == nullptr) {
-        return;
-    }
     q.push(curPath);
     while (!q.empty()) {
         curPath = q.front();
@@ -156,8 +153,8 @@ void fileBfs(std::string& curPath, const RequestInfo& requestInfo, std::vector<F
                 result.push_back(file);
             }
         }
+	closedir(curDir);
     }
-    closedir(curDir);
 }
 
 void execute(std::string& path, std::vector<File> arguments) {
