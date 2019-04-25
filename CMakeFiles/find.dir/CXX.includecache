@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/sp4rk/Documents/OS/os-find/find.cpp
+iostream
+-
+vector
+-
+unistd.h
+-
+sstream
+-
+cstring
+-
+sys/types.h
+-
+sys/stat.h
+-
+stdio.h
+-
+errno.h
+-
+sys/wait.h
+-
+dirent.h
+-
+queue
+-
+

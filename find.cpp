@@ -113,8 +113,9 @@ struct File {
     }
 };
 
-std::vector<char*> getConvertedArgs(std::vector<File>& args) {
+std::vector<char*> getConvertedArgs(std::vector<File>& args, std::string& path) {
     std::vector<char*> arguments;
+    arguments.push_back(&path[0]);
     for (auto& arg: args) {
         arguments.push_back(&arg.fullPath[0]);
     }
@@ -162,7 +163,7 @@ void execute(std::string& path, std::vector<File> arguments) {
     if (pid == -1) {
         std::cerr << "Couldn't fork current process: " << strerror(errno) << std::endl;
     } else if (pid == 0) {
-        std::vector<char*> convertedArguments = getConvertedArgs(arguments);
+        std::vector<char*> convertedArguments = getConvertedArgs(arguments, path);
         if (execve(path.c_str(), convertedArguments.data(), nullptr) == -1) {
             std::cerr << "Couldn't execute file: " << strerror(errno) << std::endl;
             exit(EXIT_FAILURE);

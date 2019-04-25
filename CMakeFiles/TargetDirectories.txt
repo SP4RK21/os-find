@@ -1,0 +1,3 @@
+/Users/sp4rk/Documents/OS/os-find/CMakeFiles/rebuild_cache.dir
+/Users/sp4rk/Documents/OS/os-find/CMakeFiles/edit_cache.dir
+/Users/sp4rk/Documents/OS/os-find/CMakeFiles/find.dir
